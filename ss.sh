@@ -1,6 +1,6 @@
 #!/bin/bash
 
-url="https://captions.vimeo.com/captions/191047156.vtt?expires=1765058111&sig=e29b4864d97188d7629add8486afaad0fa18868a"
+url="https://player.vimeo.com/texttrack/191047450.vtt?token=693555e0_0xf8405c94c5338c032b7798b17cce633290112846"
 
 # Fetch data from the URL
 data=$(curl -s "$url")
