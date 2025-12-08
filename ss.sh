@@ -1,6 +1,6 @@
 #!/bin/bash
 
-url="https://captions.vimeo.com/captions/191046661.vtt?expires=1765113130&sig=bf07bcfa8a34c9fb1b10dc40bbc06324be58d53a"
+url="$1"
 
 # Fetch data from the URL
 data=$(curl -s "$url")
@@ -8,7 +8,7 @@ data=$(curl -s "$url")
 # Process the data to remove timestamps, format it into a single line, and remove consecutive numbers
 output=$(echo "$data" | sed -E 's/^[0-9:.]+ --> [0-9:.]+\s*//' | tr -s '\n' | tr '\n' ' ' | tr -s ' ' | sed -E 's/[[:space:]]+[0-9]+[[:space:]]+/ /g')
 
-path="/workspaces/kubernetes_and_cloud_native_associate/KubernetesResources/"
+path="/workspaces/kubernetes_and_cloud_native_associate/CNO/"
 
 mkdir -p $path
 
