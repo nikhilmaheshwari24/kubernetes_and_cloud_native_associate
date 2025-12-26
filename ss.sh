@@ -8,7 +8,7 @@ data=$(curl -s "$url")
 # Process the data to remove timestamps, format it into a single line, and remove consecutive numbers
 output=$(echo "$data" | sed -E 's/^[0-9:.]+ --> [0-9:.]+\s*//' | tr -s '\n' | tr '\n' ' ' | tr -s ' ' | sed -E 's/[[:space:]]+[0-9]+[[:space:]]+/ /g')
 
-path="/workspaces/kubernetes_and_cloud_native_associate/CloudNativeArchitecture/"
+path="/workspaces/kubernetes_and_cloud_native_associate/ContainerOrchestration-Storage/"
 
 mkdir -p $path
 
