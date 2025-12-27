@@ -6,9 +6,13 @@ url="$1"
 data=$(curl -s "$url")
 
 # Process the data to remove timestamps, format it into a single line, and remove consecutive numbers
-output=$(echo "$data" | sed -E 's/^[0-9:.]+ --> [0-9:.]+\s*//' | tr -s '\n' | tr '\n' ' ' | tr -s ' ' | sed -E 's/[[:space:]]+[0-9]+[[:space:]]+/ /g')
+output=$(echo "$data" | sed -E '
+  /^WEBVTT$/d;
+  /^[0-9]+$/d;
+  /^[0-9:.]+ --> [0-9:.]+$/d
+' | tr '\n' ' ' | tr -s ' ')
 
-path="/workspaces/kubernetes_and_cloud_native_associate/ContainerOrchestration-ServiceMesh/"
+path="/workspaces/kubernetes_and_cloud_native_associate/CloudNativeObservability/"
 
 mkdir -p $path
 
